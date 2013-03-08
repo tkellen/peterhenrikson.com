@@ -24,23 +24,6 @@ module.exports = function(grunt) {
       }
     },
 
-    compress: {
-      test: {
-        /*
-        expand: true,
-        cwd: 'assets/img',
-        src: ['*.png'],
-        dest: 'public',
-        ext: '.gz',
-        */
-        src: 'assets/img/bg.png',
-        dest: 'public/blah.gz'
-      },
-      options: {
-        mode: 'gzip'
-      }
-    },
-
     coffee: {
       compile: {
         src: ['tmp/site.coffee'],
