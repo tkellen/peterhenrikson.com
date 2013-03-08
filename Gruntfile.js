@@ -63,6 +63,17 @@ module.exports = function(grunt) {
         expand: true,
         src: 'assets/img/**/*',
         dest: 'public/'
+      },
+      fonts: {
+        expand: true,
+        src: 'assets/fonts/**/*',
+        dest: 'public/'
+      },
+      www: {
+        expand: true,
+        cwd: 'assets/www/',
+        src: '**/*',
+        dest: 'public/'
       }
     },
 

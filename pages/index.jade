@@ -1,8 +1,32 @@
 extends layout/main
+append content
+  header
+    h1 Peter Henrikson
+    p Timber Frame Education, Design &amp; Joinery
+    p
+     |218-370-8415
+     br
+     script
+       { coded = "TDi45wJh@fDB4wh.DBy"
+         key = "mpAV3h6vOxtbTMqBkRLWsXzS1aiFn5f0ojYPu7KIg9e8wJQGlNcDHUEd2CryZ4"
+         shift=coded.length
+         link=""
+         for (i=0; i<coded.length; i++) {
+           if (key.indexOf(coded.charAt(i))==-1) {
+             ltr = coded.charAt(i)
+             link += (ltr)
+           }
+           else {
+             ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+             link += (key.charAt(ltr))
+           }
+         }
+         document.write("<a href='mailto:"+link+"'>"+link+"</a>")
+       }
 
 append js
   script
-    $.backstretch("/assets/img/peter.jpg", {
+    $.anystretch("/assets/img/peter.jpg", {
       centeredX: true,
-      centeredY: false
+      speed: 150
     });
