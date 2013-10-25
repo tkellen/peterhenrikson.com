@@ -1,0 +1,55 @@
+#home
+  h1
+    text-shadow: 0 0 10px rgba(0,0,0,.3),
+                 0 0 10px rgba(0,0,0,.3)
+    padding-right: 25px
+    line-height: 120%
+
+  .content
+    text-align: center
+
+  .background
+    background: url("/assets/img/splash.jpg") fixed no-repeat
+    background-size: cover
+
+  .down-arrow i
+    display: block
+    font-size: 40px
+    font-weight: normal
+    margin-top: 20px
+    color: rgba(255,255,255,.9)
+
+  .logo
+    width: 200px
+    height: 200px
+    text-align: center
+    margin: 50px auto 20px auto
+    object
+      width: 200px
+      height: 168px
+
+  &:last-child
+    background-color: #fff
+
+  .content.affix
+    width: 90%
+
+
+// small screens / tablets
+@media only screen and (min-width: 768px) and (max-width: 959px)
+  #home h1
+    font-size: 48px
+
+// mobile portrait
+@media only screen and (max-width: 767px)
+  #home h1
+    .dagger
+      display: block
+      &:after
+        content: none
+
+    padding-right: 0
+
+
+
+

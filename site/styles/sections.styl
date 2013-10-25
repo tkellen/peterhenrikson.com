@@ -1,0 +1,54 @@
+section
+  position: relative
+  z-index: 1
+  padding-top: 120px
+  padding-bottom: 50px
+  box-sizing: border-box;
+  background-color: themeColor
+  transition: background-color .5s
+  &.fullheight
+    min-height: 100%
+  .background
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    z-index: -1
+    background-size: cover
+    background-position: fixed
+    background-repeat: no-repeat
+
+  h1
+    display: block
+    text-align: center
+    font-size: 60px
+    color: #fff
+
+.white
+  background: none
+  background-color: #eee
+  h1
+    color: #f4c532
+
+@media (max-width: 767px)
+  section
+    padding-top: 75px
+    h1
+      font-size: 50px
+    .background
+      position: absolute
+      background-attachment: scroll
+    .content
+      text-align: center
+
+@media (max-width: 420px)
+
+  section
+    height: auto
+    padding-top: 20px
+    .background
+      height: 100%
+    h1
+      font-size: 30px
+      margin: 18px 0 35px 0

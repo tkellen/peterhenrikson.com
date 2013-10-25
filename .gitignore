@@ -1,7 +1,4 @@
-.sass-cache
-Gemfile.lock
-public
-tmp
-log
-config/auth.yml
 node_modules
+tmp
+components
+public

@@ -1,144 +1,101 @@
 module.exports = (grunt) ->
 
-  require('matchdep').filterDev('grunt-contrib*').forEach grunt.loadNpmTasks
+  require('matchdep').filterDev('grunt-contrib*').forEach(grunt.loadNpmTasks)
 
   grunt.initConfig
-    meta:
-      assets:
-        src: 'assets/'
-        dest: 'public/assets'
-
-    concat:
-      coffee:
-        src: ['<%= meta.assets.src %>/js/*.coffee']
-        dest: 'tmp/site.coffee'
-
-      js:
-        src: ['<%= meta.assets.src %>/js/lib/jquery.js',
-              '<%= meta.assets.src %>/js/lib/*.js',
-              'tmp/site.js']
-        dest: '<%= meta.assets.dest %>/site.js'
-
-    coffee:
-      compile:
-        src: ['tmp/site.coffee']
-        dest: 'tmp/site.js'
-        options:
-          bare: true
-
-    uglify:
-      site:
-        src: '<%= meta.assets.dest %>/site.js'
-        dest: '<%= meta.assets.dest %>/site.js'
 
     stylus:
       options:
-        urlfunc: 'embedurl'
-        paths: ['<%= meta.assets.src %>/css',
-                '<%= meta.assets.src %>/img']
         'include css': true
-
-      develop:
-        src: '<%= meta.assets.src %>/css/site.styl'
-        dest: '<%= meta.assets.dest %>/site.css'
-
-    cssmin:
-      site:
-        src: '<%= meta.assets.dest %>/site.css'
-        dest: '<%= meta.assets.dest %>/site.css'
+      css:
+        src: 'site/styles/style.styl'
+        dest: 'public/style.css'
 
     copy:
-      images:
+      assets:
         expand: true
-        src: 'assets/img/**/*'
-        dest: 'public/'
-
-      fonts:
-        expand: true
-        src: 'assets/fonts/**/*'
-        dest: 'public/'
-
-      www:
-        expand: true
-        cwd: 'assets/www/'
-        src: '**/*'
-        dest: 'public/'
-
-    connect:
-      server:
-        options:
-          port: 8000
-          base: 'public'
+        cwd: 'site'
+        src: 'assets/**/*'
+        dest: 'public'
 
     watch:
+      options:
+        livereload: true
+      assets:
+        files: ['site/assets/**/*']
+        tasks: ['copy']
+      site:
+        files: ['site/*']
       css:
-        files: ['<%= meta.assets.src %>/css/**/*']
+        files: ['site/styles/*']
         tasks: ['stylus']
-
-      js:
-        files: ['<%= meta.assets.src %>/js/**/*']
-        tasks: ['js']
-
-      pages:
-        files: ['pages/*.jade']
-        tasks: ['compile']
+      jade:
+        files: ['site/pages/**','config/**']
+        tasks: ['jade:debug']
 
     clean:
-      tmp: ['tmp']
-      site: ['public']
       assets: ['public/assets']
 
-    htmlmin:
-      site:
+    connect:
+      options:
+        hostname: '*'
+        port: 8000
+        base: 'public'
+      debug:
         options:
-          removeComments: true
-          collapseWhitespace: true
+          middleware: (connect, options) ->
+            [
+              # allow requirejs to find deps async
+              connect().use('/site',connect.static(__dirname+'/site'))
+              connect().use('/config',connect.static(__dirname+'/config'))
+              connect().use('/components',connect.static(__dirname+'/components'))
+              connect().use('/public',connect.static(__dirname+'/public'))
+              # allow assets to be used without copying
+              connect().use('/assets',connect.static(__dirname+'/assets'))
+              connect.static(options.base)
+              connect.directory(options.base)
+            ]
+      production:
+        options:
+          base: 'public'
 
+    jade:
+      debug:
         expand: true
-        cwd: 'public/'
-        src: '**/*.html'
-        dest: 'public/'
+        cwd: 'site/pages'
+        src: ['*.jade','!_*.jade']
+        dest: 'public'
+        ext: '.html'
+        options:
+          data:
+            config: require('./config/site'),
+            debug: true
+      production:
+        expand: true
+        cwd: 'site/pages'
+        src: ['*.jade','!_*.jade']
+        dest: 'public'
+        ext: '.html'
+        options:
+          data:
+            config: require('./config/site')
+            debug: false
 
-    # total hack
-    grunt.registerTask "staticsite", ->
+    requirejs:
+      options:
+        baseUrl: '',
+        mainConfigFile: 'config/requirejs.js',
+        name: 'components/almond/almond',
+        out: 'public/site.js'
 
-      # pull context out of file
-      context = (str) ->
-        ctx = {}
-        try
-          yaml = str.match(/\/\/-\n([\s\S]*)(?=\/\/-)/)[1]
-          ctx = YAML.load(yaml)
-        ctx
-      path = require("path")
-      YAML = require("js-yaml")
-      grunt.log.writeln "Building list of pages to generate."
-      grunt.file.expand("pages/*.jade").forEach (file, i) ->
-        grunt.config.set "jade.page" + i,
-          options:
-            data: context(grunt.file.read(file))
-            pretty: true
+      debug:
+        options:
+          optimize: 'none'
+      production:
+        options:
+          optimize: 'uglify2'
 
-          src: file
-          dest: "public/" + path.basename(file, ".jade").replace(/_/g, "/") + ".html"
+  grunt.registerTask('work', ['jade:debug', 'stylus', 'connect:debug', 'watch'])
+  grunt.registerTask('production', ['clean', 'copy', 'jade:production', 'requirejs:production', 'stylus', 'connect:production:keepalive'])
+  grunt.registerTask('default', ['work'])
 
-
-  # concat site libs and coffeescript
-  grunt.registerTask 'js', ['concat:coffee', 'coffee', 'concat:js', 'clean:tmp']
-
-  # compile static html
-  grunt.registerTask 'compile', ['staticsite', 'jade']
-
-  # copy assets
-  grunt.registerTask 'assets', ['clean:assets', 'copy']
-
-  # start working environment
-  grunt.registerTask 'work', ['develop', 'connect', 'watch']
-
-  # prep site for development
-  grunt.registerTask 'develop', ['clean:site', 'assets', 'js', 'stylus', 'compile']
-
-  # prep site for production (minify js/css)
-  grunt.registerTask 'production', ['develop', 'uglify', 'cssmin']
-
-  # start working
-  grunt.registerTask 'default', ['work']

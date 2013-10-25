@@ -1,21 +1,20 @@
 {
-  "name": "peterhenrikson.com",
-  "version": "0.1.0",
+  "name": "peterhenrikson",
   "private": "true",
+  "version": "0.1.0",
+  "dependencies": {},
   "devDependencies": {
-    "grunt-contrib-concat": "~0.1.2",
-    "grunt-contrib-coffee": "~0.4.0",
+    "grunt": "~0.4.1",
+    "matchdep": "~0.3.0",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-watch": "~0.4.3",
+    "grunt-contrib-jade": "~0.8.0",
+    "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-stylus": "~0.5.0",
-    "grunt-contrib-cssmin": "~0.4.0",
-    "grunt-contrib-uglify": "~0.1.1",
-    "grunt-contrib-watch": "~0.2.0",
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-jade": "~0.4.0",
-    "grunt-contrib-copy": "~0.4.0",
-    "grunt-contrib-connect": "~0.1.1",
-    "grunt-contrib-htmlmin": "~0.1.1",
-    "grunt": "~0.4.0",
-    "matchdep": "~0.1.0",
-    "js-yaml": "~1.0.1"
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-clean": "~0.4.1"
+  },
+  "scripts": {
+    "install": "bower install"
   }
 }
