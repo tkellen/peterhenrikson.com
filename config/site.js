@@ -5,11 +5,11 @@ module.exports = {
   analytics: "UA-39117798-1",
   fonts: "Lato:200|Marcellus",
   timeline: [
-    { year: "Month, 2013",
+    { year: "December, 2013",
       icon: "fa-book",
       content: "Grindbygg article published in Timber Framing - quarterly journal of the Timber Framer’s Guild."
     },
-    { year: "Month, 2013",
+    { year: "August, 2013",
       icon: "fa-book",
       content: "Grindbygg presentation at Guild Conference in Burlington, VT."
     },
