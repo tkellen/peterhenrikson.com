@@ -9,7 +9,6 @@
     "jquery": "~2.0.0",
     "cjs": "latest",
     "jquery.scrollTo": "~1.4.6",
-    "jquery-waypoints": "~2.0.3",
-    "Wookmark-jQuery": "GBKS/Wookmark-jQuery#~1.4.4"
+    "jquery-waypoints": "~2.0.3"
   }
 }

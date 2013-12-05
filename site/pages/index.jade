@@ -2,81 +2,60 @@ extends layout/main
 
 block content
 
-  body
-    nav
-      h1.brand Peter Henrikson
-      ul
-        li
-          a.scroll(href="#about") <i class="fa fa-user"></i>&nbsp;&nbsp;about
-        li
-          a.scroll(href="#services")  <i class="fa fa-cogs"></i>&nbsp;&nbsp;services
-        li
-          a.scroll(href="#work") <i class="fa fa-briefcase"></i>&nbsp;&nbsp;work
-        li
-          a.scroll(href="#contact") <i class="fa fa-phone"></i>&nbsp;&nbsp;contact
+  section#home.splash.fullheight
+    .background.parallax
+    .content
+      .logo
+        object(type="image/svg+xml", data="/assets/img/logo.svg")
+          img(src='/assets/img/logo.png')
+      h1 Peter Henrikson <div class="dagger"></div> Timber Framer
 
-    section#home.splash.fullheight
-      .background.parallax
-      .content
-        .logo
-          object(type="scg", data="/assets/img/logo.svg")
-            img(src='/assets/img/logo.png')
-        h1 Peter Henrikson <div class="dagger"></div> Timber Framer
+      a.scroll.btn(href='#about') LEARN MORE
+      a.scroll.down-arrow(href='#about')
+        i.fa.fa-angle-down
 
-        a.scroll.btn(href='#about') LEARN MORE
-        a.scroll.down-arrow(href='#about')
-          i.fa.fa-angle-down
+  section#about.fullheight
+    .container
+      .peter
+        h1 Timber Frame Education, Design &amp; Joinery
+        .portrait
+          img(src='/assets/img/peter.jpg', alt='Peter Henrikson')
+        p Helping people with their timber frame dreams since 1998.
+        p
+          h2
+            a(href="tel:218.370.8415") 218.370.8415
+        p
+          h3
+            a(href="mailto:peter@peterhenrikson.com") peter@peterhenrikson.com
 
-    section#about.fullheight
-      .container
-        .peter
-          h1 Timber Frame Education, Design &amp; Joinery
-          .portrait
-            img(src='/assets/img/peter.jpg', alt='Peter Henrikson')
-          p Helping people with their timber frame dreams since 1998.
-          p
-            h2
-              a(href="tel:218.370.8415") 218.370.8415
-          p
-            h3
-              a(href="mailto:peter@peterhenrikson.com") peter@peterhenrikson.com
+  section#services.fullheight
+    .background.parallax
+    .container
+      h1.contrast Timber Framing Services
+      .row
+        .twelve.columns.services.offset-by-two
+          p For me, timber framing is a fascinating blend of right and left brain, of structure and form.  Whether I'm sharing information in a class, designing a frame &amp; producing shop drawings for an owner-builder, or cutting joinery myself, I'm always focused on creating a structure of lasting beauty.
+      .row
+        .one.columns &nbsp;
+        .four.columns.service
+          i.fa.fa-book
+          h3 EDUCATION
+          p Teaching classes in basic and Norwegian style Grindbygg framing at <a href="http://northhouse.org/">North House Folk School</a> and elsewhere.
+        .one.columns &nbsp;
+        .four.columns.service
+          i.fa.fa-pencil
+          h3 DESIGN
+          p Specializing in design and frame plan sets for owner builders who want to cut the joinery for their own frames.
+        .one.columns &nbsp;
+        .four.columns.service
+          i.fa.fa-puzzle-piece
+          h3 JOINERY
+          p Constructing small and unique frames using traditional joinery with the subtle effects of hand tools.
+        .two.columns &nbsp;
 
-    section#services.fullheight
-      .background.parallax
-      .container
-        h1.contrast Timber Framing Services
-        .row
-          .twelve.columns.services.offset-by-two
-            p For me, timber framing is a fascinating blend of right and left brain, of structure and form.  Whether I'm sharing information in a class, designing a frame &amp; producing shop drawings for an owner-builder, or cutting joinery myself, I'm always focused on creating a structure of lasting beauty.
-        .row
-          .one.columns &nbsp;
-          .four.columns.service
-            i.fa.fa-book
-            h3 EDUCATION
-            p Teaching classes in basic and Norwegian style Grindbygg framing at <a href="http://northhouse.org/">North House Folk School</a> and elsewhere.
-          .one.columns &nbsp;
-          .four.columns.service
-            i.fa.fa-pencil
-            h3 DESIGN
-            p Specializing in design and frame plan sets for owner builders who want to cut the joinery for their own frames.
-          .one.columns &nbsp;
-          .four.columns.service
-            i.fa.fa-puzzle-piece
-            h3 JOINERY
-            p Constructing small and unique frames using traditional joinery with the subtle effects of hand tools.
-          .two.columns &nbsp;
-
-    footer#contact
-      .container
-        .two.columns
-          h3 links
-          ul
-            li
-              a(href='#') Contact
-            li
-              a(href='#') About
-            li
-              a(href='#') Blog
-
-        .ten.columns
-          h3 contact me
+  section#work.fullheight
+    h1 My Work
+    .container
+      ul.timeline
+        - each entry in config.timeline
+          include partials/entry

@@ -4,27 +4,35 @@ define (require) ->
   require('jquery')
   require('scrollto')
   require('waypoints_sticky')
-  require('wookmark')
 
   $ ->
 
-    # make navbar stick to top of page after scroll
-    nav = $('nav')
-    nav.waypoint 'sticky',
-      offset: "-100%"
-      handler: ->
-        if $(window).width() < 768
-          marginTop = 0
-        else
-          marginTop = if(nav.hasClass('stuck')) then -70 else 0
+    # get current page
+    path = window.location.pathname.substring(1)
+    onHomePage = (path == "" || path == "index.html")
 
-        $('body').css('marginTop', marginTop)
 
-    # make anchor links scroll nicely
-    $('.scroll').click (e) ->
-      href = this.href.split('#')[1];
-      $.scrollTo('#'+href,{duration:200,offset:10});
-      e.preventDefault()
+    if onHomePage
+      # make navbar stick to top of page after scroll on the home page
+      nav = $('nav')
+      nav.waypoint 'sticky',
+        offset: "-100%"
+        handler: ->
+          if $(window).width() < 768
+            marginTop = 0
+          else
+            marginTop = if(nav.hasClass('stuck')) then -70 else 0
+
+          $('body').css('marginTop', marginTop)
+
+      # make anchor links scroll nicely
+      $('.scroll').click (e) ->
+        href = this.href.split('#')[1];
+        $.scrollTo('#'+href,{duration:200,offset:10});
+        e.preventDefault()
+    else
+      $('nav').css('top', 0)
+
 
     # parallax scrolling implementation
     parallaxImages = $('.parallax')

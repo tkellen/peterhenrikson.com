@@ -34,6 +34,38 @@
   .content.affix
     width: 90%
 
+  .btn
+    position: relative
+    font-size: 14px
+    line-height: 20px
+    padding: 10px
+    margin: 0 10px 10px 10px
+    text-shadow: none
+    box-shadow: none
+    background: none
+    border: 2px solid rgba(255,255,255,.6)
+    color: rgba(255,255,255,.8)
+    background-color: transparent
+    border-radius: 6px
+    transition: .3s
+
+    &:hover
+      border-color: #fff
+      color: #fff
+
+    &:active
+      top: 2px
+
+    .btn.active
+      background-color: rgba(0,0,0,.1)
+      border-color: #fff
+      color: #fff
+
+    &:focus
+      color: #fff
+      outline: none
+
+
 
 // small screens / tablets
 @media only screen and (min-width: 768px) and (max-width: 959px)
@@ -43,13 +75,8 @@
 // mobile portrait
 @media only screen and (max-width: 767px)
   #home h1
+    padding-right: 0
     .dagger
       display: block
       &:after
         content: none
-
-    padding-right: 0
-
-
-
-
