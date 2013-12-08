@@ -19,6 +19,7 @@ require.config({
     cjs: 'components/cjs/cjs',
     cs: 'components/require-cs/cs',
     scrollto: 'components/jquery.scrollTo/jquery.scrollTo',
+    placeholder: 'components/jquery-placeholder/jquery.placeholder',
     waypoints: 'components/jquery-waypoints/waypoints',
     waypoints_sticky: 'components/jquery-waypoints/shortcuts/sticky-elements/waypoints-sticky',
     wookmark: 'components/Wookmark-jQuery/jquery.wookmark'

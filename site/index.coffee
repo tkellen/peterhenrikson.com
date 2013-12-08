@@ -3,6 +3,7 @@ define (require) ->
   CONFIG = require('cjs!config/site')
   require('jquery')
   require('scrollto')
+  require('placeholder')
   require('waypoints_sticky')
 
   $ ->
@@ -32,6 +33,18 @@ define (require) ->
     else
       $('nav').css('top', 0)
 
+    # ensure placeholders work on older browsers
+    $('input, textarea').placeholder();
+
+    # placeholders on inputs uses fontawesome
+    # this switches the font to the default when
+    # their fields aren't empty
+    $('.iconed').on 'keyup', ->
+      input = $(@)
+      if input.val().length == 0
+          input.addClass('iconed');
+      else
+          input.removeClass('iconed');
 
     # parallax scrolling implementation
     parallaxImages = $('.parallax')

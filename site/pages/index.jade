@@ -64,16 +64,12 @@ block content
         - each entry in config.timeline.reverse()
           include partials/entry
 
-  section#contact.fullheight
-    #form-main
-      #form-div
-          form#form1.form
-            p.name
-              input.feedback-input#name(name='name', type='text', placeholder='Name')
-            p.email
-              input.feedback-input#email(name='email', type='text', placeholder='Email')
-            p.text
-              textarea.feedback_input#comment(name='text', placeholder='Comment')
-            .submit
-              input#button-blue(type='submit', value='SEND')
-              .ease
+  section#contact
+    h1 Contact Me
+    .container
+      form.sixteen.columns
+        input.iconed(name='name', type='text', placeholder!="&#61447; Name")
+        input.iconed(name='email', type='text', placeholder!='&#xf0e0; Email')
+        input.iconed(name='phone', type='text', placeholder!='&#xf095; Phone')
+        textarea.iconed(name='message', placeholder='Message')
+        input(type='submit', value='Send Your Message')
