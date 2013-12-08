@@ -67,6 +67,8 @@ module.exports = (grunt) ->
         dest: 'public'
         ext: '.html'
         options:
+          filters:
+            moment: require('moment')
           data:
             config: require('./config/site'),
             debug: true
@@ -77,6 +79,8 @@ module.exports = (grunt) ->
         dest: 'public'
         ext: '.html'
         options:
+          filters:
+            moment: require('moment')
           data:
             config: require('./config/site')
             debug: false

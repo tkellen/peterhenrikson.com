@@ -11,7 +11,6 @@ define (require) ->
     path = window.location.pathname.substring(1)
     onHomePage = (path == "" || path == "index.html")
 
-
     if onHomePage
       # make navbar stick to top of page after scroll on the home page
       nav = $('nav')
