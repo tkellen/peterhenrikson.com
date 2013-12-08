@@ -1,5 +1,5 @@
 li(class=entry.categories)
-  time(date=entry.date.toJSON())=moment(entry.date).format('MMMM, YYYY')
+  time=moment(entry.date).format('MMMM, YYYY')
   i(class="icon fa #{entry.icon}")
   .entry
     p!=entry.content
