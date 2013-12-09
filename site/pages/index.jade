@@ -67,8 +67,8 @@ block content
   section#contact
     h1 Contact Me
     .container
-      form.sixteen.columns
-        input.iconed(name='name', type='text', placeholder!="&#61447; Name")
+      form(action='/contact',method='post').sixteen.columns
+        input.iconed(name='from', type='text', placeholder!="&#61447; Name")
         input.iconed(name='email', type='text', placeholder!='&#xf0e0; Email')
         input.iconed(name='phone', type='text', placeholder!='&#xf095; Phone')
         textarea.iconed(name='message', placeholder='Message')

@@ -2,6 +2,7 @@ module.exports = {
   title: "Timber Frame Education, Design &amp; Joinery | Peter Henrikson",
   description: "Learn more about master timber framer Peter Henrikson",
   author: "Peter Henrikson",
+  email: "tyler@sleekcode.net",
   analytics: "UA-39117798-1",
   fonts: "Lato:200|Marcellus",
   timeline: [
@@ -27,7 +28,7 @@ module.exports = {
       icon: "fa-book",
       categories: [],
       date: '1989-07-01',
-      content: "Started a nine year stint working seasonally running volunteer crews building hiking trails and bridges with the Student Conservation Association (SCA)"
+      content: "Started a nine year stint working seasonally running volunteer crews building hiking trails and bridges with the Student Conservation Association (SCA)."
     },
     {
       icon: "fa-book",
@@ -57,7 +58,7 @@ module.exports = {
       icon: "fa-book",
       categories: [],
       date: '1998-08-01',
-      content: "Designed my first timber frame for the first Build-Your-Own Timber Frame course at North House."
+      content: "Designed my first timber frame for the first Build-Your-Own Timber Frame course at <a href='http://northhouse.org' rel='external'>North House Folk School</a>."
     },
     {
       icon: "fa-book",
@@ -69,7 +70,7 @@ module.exports = {
       icon: "fa-book",
       categories: [],
       date: '1999-03-01',
-      content: "Joined the Timber Framer’s Guild",
+      content: "Joined the <a href='http://tfguild.net' rel='external'>Timber Framer’s Guild</a>.",
     },
     {
       icon: "fa-book",
@@ -81,7 +82,7 @@ module.exports = {
       icon: "fa-book",
       categories: [],
       date: '2002-07-01',
-      content: "St. Olaf College Memorial Chime tower frame cut at North House Folk School&mdash;raised that August."
+      content: "St. Olaf College Memorial Chime tower frame cut at <a href='http://northhouse.org' rel='external'>North House Folk School</a>&mdash;raised that August."
     },
     {
       icon: "fa-book",
@@ -93,7 +94,7 @@ module.exports = {
       icon: "fa-book",
       categories: [],
       date: '2004-01-01',
-      content: "Started using Dietrich’s 3D CAD program for design."
+      content: "Started using <a href='http://dietrichsna.com/' rel='external'>Dietrich’s 3D CAD</a> program for design."
     },
     {
       icon: "fa-book",
@@ -105,7 +106,7 @@ module.exports = {
       icon: "fa-book",
       categories: [],
       date: '2006-12-01',
-      content: "Three of my small frame designs chosen for inclusion in <a href=\"http://tfguild.stores.yahoo.net/tifrguplbo.html\">Fourteen Small Timber Frames.</a>"
+      content: "Three of my small frame designs chosen for inclusion in <a href='http://tfguild.stores.yahoo.net/tifrguplbo.html' rel='external'>Fourteen Small Timber Frames.</a>"
     },
     {
       icon: "fa-book",
@@ -123,7 +124,7 @@ module.exports = {
       icon: "fa-book",
       categories: [],
       date: '2011-05-01',
-      content: "Vinsted frame cut at North House, raised in July of 2011."
+      content: "Vinsted frame cut at <a href='http://northhouse.org' rel='external'>North House Folk School</a>, raised in July of 2011."
     },
     {
       icon: "fa-book",
@@ -147,7 +148,7 @@ module.exports = {
       icon: "fa-book",
       categories: ['tf','grindbygg'],
       date: '2013-03-01',
-      content: "Taught Grindbygg class at North House Folk School&mdash;constructed a boat house for the North Shore Commercial Fishing Museum"
+      content: "Taught Grindbygg class at <a href='http://northhouse.org' rel='external'>North House Folk School</a>&mdash;constructed a boat house for the North Shore Commercial Fishing Museum"
     },
     {
       icon: "fa-book",
@@ -171,7 +172,7 @@ module.exports = {
       icon: "fa-book",
       categories: ['tf','grindbygg'],
       date: '2013-12-01',
-      content: "Grindbygg article published in Timber Framing - quarterly journal of the Timber Framer’s Guild"
+      content: "Grindbygg article published in <a href='http://www.tfguild.org/publications/timber-framing' rel='external'>Timber Framing</a> - quarterly journal of the Timber Framer’s Guild."
     },
     {
       icon: "fa-book",
