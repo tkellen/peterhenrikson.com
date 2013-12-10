@@ -1,5 +1,4 @@
 var CONFIG = require('./config/site');
-var AUTH = require('./config/auth');
 var express = require('express');
 var mail = require('nodemailer').mail;
 var jade = require('jade');
