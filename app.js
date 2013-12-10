@@ -31,9 +31,8 @@ app.post('/contact', function (req, res) {
       subject: 'Website Contact Form',
       html: html,
       generateTextFromHTML: true
-    }, function () {
-      res.json({});
     });
+    res.json({});
   });
 });
 
