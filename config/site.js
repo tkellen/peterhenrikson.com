@@ -3,6 +3,7 @@ module.exports = {
   description: "Learn more about master timber framer Peter Henrikson",
   author: "Peter Henrikson",
   email: "peter@peterhenrikson.com",
+  emailDeveloper: "tyler@sleekcode.net",
   analytics: "UA-39117798-1",
   fonts: "Lato:200|Marcellus",
   timeline: [

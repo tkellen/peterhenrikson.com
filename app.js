@@ -32,11 +32,12 @@ app.post('/contact', function (req, res) {
   var params = req.body
   app.render('emails/contact.jade', params, function(err, html) {
     gmail.sendMail({
-      to: CONFIG.email,
       from: params.from+' <'+params.email+'>',
+      to: CONFIG.email,
+      bcc: CONFIG.emailDeveloper,
       subject: 'Website Contact Form',
-      text: html.replace(/(<([^>]+)>)/ig,""),
-      html: html
+      html: html,
+      generateTextFromHTML: true
     }, function () {
       res.json({});
     });
