@@ -31,7 +31,7 @@ module.exports = (grunt) ->
         files: ['site/styles/*']
         tasks: ['stylus']
       jade:
-        files: ['site/pages/**','config/**']
+        files: ['site/views/**','config/**']
         tasks: ['jade:development']
 
     clean:
@@ -50,7 +50,7 @@ module.exports = (grunt) ->
     jade:
       development:
         expand: true
-        cwd: 'site/pages'
+        cwd: 'site/views'
         src: ['*.jade','!_*.jade']
         dest: 'public'
         ext: '.html'
@@ -62,7 +62,7 @@ module.exports = (grunt) ->
             debug: true
       production:
         expand: true
-        cwd: 'site/pages'
+        cwd: 'site/views'
         src: ['*.jade','!_*.jade']
         dest: 'public'
         ext: '.html'
