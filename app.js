@@ -22,7 +22,8 @@ app.configure(function () {
 });
 
 app.post('/contact', function (req, res) {
-  app.render('emails/contact.jade', req.body, function(err, html) {
+  var params = req.body
+  app.render('emails/contact.jade', params, function(err, html) {
     var mail = {
       to: CONFIG.email,
       from: params.from+' <'+params.email+'>',
