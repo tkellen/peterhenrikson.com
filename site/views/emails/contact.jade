@@ -9,4 +9,4 @@ p
   strong Message:
   br
   br
-  = message.replace('\n','<br>')
+  != message.replace(/\n/g,'<br>')
