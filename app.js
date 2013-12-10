@@ -1,15 +1,8 @@
 var CONFIG = require('./config/site');
 var AUTH = require('./config/auth');
 var express = require('express');
-var nodemailer = require('nodemailer');
+var mail = require('nodemailer').mail;
 var jade = require('jade');
-var gmail = nodemailer.createTransport("SMTP", {
-   service: "Gmail",
-   auth: {
-       user: AUTH.email.user,
-       pass: AUTH.email.pass
-   }
-});
 
 var app = express();
 
@@ -31,7 +24,7 @@ app.configure(function () {
 app.post('/contact', function (req, res) {
   var params = req.body
   app.render('emails/contact.jade', params, function(err, html) {
-    gmail.sendMail({
+    mail({
       from: params.from+' <'+params.email+'>',
       to: CONFIG.email,
       bcc: CONFIG.emailDeveloper,
