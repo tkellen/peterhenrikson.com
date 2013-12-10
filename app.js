@@ -1,8 +1,9 @@
 var CONFIG = require('./config/site');
+var AUTH = require('./config/auth');
 var express = require('express');
 var email = require('emailjs');
 var jade = require('jade');
-var server  = email.server.connect({host:'localhost'});
+var server  = email.server.connect(AUTH['email']);
 
 var app = express();
 

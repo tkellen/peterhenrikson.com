@@ -2,3 +2,4 @@ node_modules
 tmp
 components
 public
+config/auth.js
