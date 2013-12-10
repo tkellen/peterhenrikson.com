@@ -4,6 +4,7 @@ define (require) ->
   require('jquery')
   require('scrollto')
   require('placeholder')
+  require('forms')
   require('waypoints_sticky')
 
   $ ->
@@ -30,13 +31,32 @@ define (require) ->
         href = this.href.split('#')[1];
         $.scrollTo('#'+href,{duration:200,offset:10});
         e.preventDefault()
+
+      # ajaxify contact form
+      $('#contact form').submit ->
+          submit = $(this).find('input[type=submit]')
+          buttontext = submit.val()
+          $(this).ajaxSubmit
+            dataType: 'json'
+            beforeSubmit: ->
+              submit.val('Processing...').attr('disabled',true)
+            success: ->
+              setTimeout((->
+                submit.val(buttontext).attr('disabled',false)
+                $('#contact form').slideUp 200, ->
+                  $('#contact .container').html("<h3 style='color:#fff;text-align:center'>Thanks for your message&mdash;I'll get back to you as soon as I can!</h3>")
+              ),100)
+            error: ->
+              alert('An unknown error occured.  Sorry about that :(')
+          return false
+
     else
       $('nav').css('top', 0)
 
     # ensure placeholders work on older browsers
     $('input, textarea').placeholder();
 
-    # placeholders on inputs uses fontawesome
+    # placeholders on inputs use fontawesome
     # this switches the font to the default when
     # their fields aren't empty
     $('.iconed').on 'keyup', ->

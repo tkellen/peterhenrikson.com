@@ -1,6 +1,6 @@
 module.exports = (grunt) ->
 
-  require('matchdep').filterDev('grunt-contrib*').forEach(grunt.loadNpmTasks)
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks)
 
   grunt.initConfig
 
@@ -21,6 +21,7 @@ module.exports = (grunt) ->
     watch:
       options:
         livereload: true
+
       assets:
         files: ['site/assets/**/*']
         tasks: ['copy']
@@ -31,36 +32,23 @@ module.exports = (grunt) ->
         tasks: ['stylus']
       jade:
         files: ['site/pages/**','config/**']
-        tasks: ['jade:debug']
+        tasks: ['jade:development']
 
     clean:
       assets: ['public/assets']
 
-    connect:
+    express:
       options:
-        hostname: '*'
-        port: 8000
-        base: 'public'
-      debug:
-        options:
-          middleware: (connect, options) ->
-            [
-              # allow requirejs to find deps async
-              connect().use('/site',connect.static(__dirname+'/site'))
-              connect().use('/config',connect.static(__dirname+'/config'))
-              connect().use('/components',connect.static(__dirname+'/components'))
-              connect().use('/public',connect.static(__dirname+'/public'))
-              # allow assets to be used without copying
-              connect().use('/assets',connect.static(__dirname+'/assets'))
-              connect.static(options.base)
-              connect.directory(options.base)
-            ]
+        script: 'app.js'
       production:
         options:
-          base: 'public'
+          node_env: 'production'
+      development:
+        options:
+          node_env: 'development'
 
     jade:
-      debug:
+      development:
         expand: true
         cwd: 'site/pages'
         src: ['*.jade','!_*.jade']
@@ -92,14 +80,14 @@ module.exports = (grunt) ->
         name: 'components/almond/almond',
         out: 'public/site.js'
 
-      debug:
+      development:
         options:
           optimize: 'none'
       production:
         options:
           optimize: 'uglify2'
 
-  grunt.registerTask('work', ['jade:debug', 'stylus', 'connect:debug', 'watch'])
-  grunt.registerTask('production', ['clean', 'copy', 'jade:production', 'requirejs:production', 'stylus', 'connect:production:keepalive'])
+  grunt.registerTask('work', ['jade:development', 'stylus', 'express:development', 'watch'])
+  grunt.registerTask('production', ['clean', 'copy', 'jade:production', 'requirejs:production', 'stylus'])
   grunt.registerTask('default', ['work'])
 
