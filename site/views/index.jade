@@ -55,10 +55,6 @@ block content
 
   section#work.fullheight
     h1 My Work
-    div(style="text-align:center")
-      a(href="javascript:;",onclick="$('.timeline li').not('.grindbygg').fadeOut()") show grindbygg
-      |&nbsp;|&nbsp;
-      a(href="javascript:;",onclick="$('.timeline li').fadeIn()") show all
     .container
       ul.timeline
         - each entry in config.timeline.reverse()

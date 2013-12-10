@@ -1,9 +1,15 @@
 var CONFIG = require('./config/site');
 var AUTH = require('./config/auth');
 var express = require('express');
-var email = require('emailjs');
+var nodemailer = require('nodemailer');
 var jade = require('jade');
-var server  = email.server.connect(AUTH['email']);
+var gmail = nodemailer.createTransport("SMTP", {
+   service: "Gmail",
+   auth: {
+       user: AUTH.email.user,
+       pass: AUTH.email.pass
+   }
+});
 
 var app = express();
 
@@ -25,15 +31,14 @@ app.configure(function () {
 app.post('/contact', function (req, res) {
   var params = req.body
   app.render('emails/contact.jade', params, function(err, html) {
-    var mail = {
+    gmail.sendMail({
       to: CONFIG.email,
       from: params.from+' <'+params.email+'>',
       subject: 'Website Contact Form',
       text: html.replace(/(<([^>]+)>)/ig,""),
-      attachment: [{ data:html}]
-    };
-    server.send(mail, function(err, msg) {
-      res.json({})
+      html: html
+    }, function () {
+      res.json({});
     });
   });
 });
