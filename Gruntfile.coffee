@@ -21,18 +21,17 @@ module.exports = (grunt) ->
     watch:
       options:
         livereload: true
-
       assets:
         files: ['site/assets/**/*']
         tasks: ['copy']
       site:
-        files: ['site/*']
+        files: ['site/index.coffee']
+      views:
+        files: ['site/views/**/*']
+        tasks: ['express:development']
       css:
         files: ['site/styles/*']
         tasks: ['stylus']
-      jade:
-        files: ['site/views/**','config/**']
-        tasks: ['jade:development']
 
     clean:
       assets: ['public/assets']
@@ -46,32 +45,6 @@ module.exports = (grunt) ->
       development:
         options:
           node_env: 'development'
-
-    jade:
-      development:
-        expand: true
-        cwd: 'site/views'
-        src: ['*.jade','!_*.jade']
-        dest: 'public'
-        ext: '.html'
-        options:
-          filters:
-            moment: require('moment')
-          data:
-            config: require('./config/site'),
-            debug: true
-      production:
-        expand: true
-        cwd: 'site/views'
-        src: ['*.jade','!_*.jade']
-        dest: 'public'
-        ext: '.html'
-        options:
-          filters:
-            moment: require('moment')
-          data:
-            config: require('./config/site')
-            debug: false
 
     requirejs:
       options:
@@ -87,7 +60,7 @@ module.exports = (grunt) ->
         options:
           optimize: 'uglify2'
 
-  grunt.registerTask('work', ['jade:development', 'stylus', 'express:development', 'watch'])
-  grunt.registerTask('production', ['clean', 'copy', 'jade:production', 'requirejs:production', 'stylus'])
+  grunt.registerTask('work', ['stylus', 'express:development', 'watch'])
+  grunt.registerTask('production', ['clean', 'copy', 'requirejs:production', 'stylus'])
   grunt.registerTask('default', ['work'])
 

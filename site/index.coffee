@@ -9,9 +9,9 @@ define (require) ->
 
   $ ->
 
-    # get current page
     path = window.location.pathname.substring(1)
     onHomePage = (path == "" || path == "index.html")
+    mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
     if onHomePage
       # make navbar stick to top of page after scroll on the home page
@@ -25,6 +25,10 @@ define (require) ->
             marginTop = if(nav.hasClass('stuck')) then -70 else 0
 
           $('body').css('marginTop', marginTop)
+
+      # scale background images properly on mobile
+      if mobile
+        $('.parallax').css('background-attachment', 'scroll')
 
       # make anchor links scroll nicely
       $('.scroll').click (e) ->
@@ -71,29 +75,30 @@ define (require) ->
       window.open @href
       e.preventDefault()
 
-    # parallax scrolling implementation
-    parallaxImages = $('.parallax')
-    parallaxImage = (img, opts) ->
-      {screenTop, screenWidth, screenBottom} = opts
-      imageTop = img.offset().top
-      backgroundPosition = '0px 0px'
+    if !mobile
+      # parallax scrolling implementation
+      parallaxImages = $('.parallax')
+      parallaxImage = (img, opts) ->
+        {screenTop, screenWidth, screenBottom} = opts
+        imageTop = img.offset().top
+        backgroundPosition = '0px 0px'
 
-      if screenBottom > imageTop && screenWidth > 768
-        if imageTop > screenTop
-          parallax = (Math.abs(screenTop - imageTop) / 2)
-        else
-          parallax = (imageTop - screenTop) / 2
+        if screenBottom > imageTop && screenWidth > 768
+          if imageTop > screenTop
+            parallax = (Math.abs(screenTop - imageTop) / 2)
+          else
+            parallax = (imageTop - screenTop) / 2
 
-        backgroundPosition = '0px '+parseInt(parallax)+'px'
+          backgroundPosition = '0px '+parseInt(parallax)+'px'
 
-      img.css('backgroundPosition', backgroundPosition)
+        img.css('backgroundPosition', backgroundPosition)
 
-    $(window).scroll ->
-      opts = {}
-      opts.screenTop = $(window).scrollTop()
-      opts.screenWidth = $(window).width()
-      opts.screenBottom = opts.screenTop + $(window).height()
-      parallaxImages.each ->
-        parallaxImage($(this), opts)
+      $(window).scroll ->
+        opts = {}
+        opts.screenTop = $(window).scrollTop()
+        opts.screenWidth = $(window).width()
+        opts.screenBottom = opts.screenTop + $(window).height()
+        parallaxImages.each ->
+          parallaxImage($(this), opts)
 
 

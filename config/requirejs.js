@@ -22,7 +22,7 @@ require.config({
     placeholder: 'components/jquery-placeholder/jquery.placeholder',
     waypoints: 'components/jquery-waypoints/waypoints',
     waypoints_sticky: 'components/jquery-waypoints/shortcuts/sticky-elements/waypoints-sticky',
-    wookmark: 'components/Wookmark-jQuery/jquery.wookmark',
+    backstretch: 'components/jquery-backstretch/jquery.backstretch',
     forms: 'components/jquery-form/jquery.form'
   },
 
@@ -32,7 +32,8 @@ require.config({
     scrollto: ['jquery'],
     wookmark: ['jquery'],
     forms: ['jquery'],
-    placeholder: ['jquery']
+    placeholder: ['jquery'],
+    backstretch: ['jquery']
   },
 
   // modules not included in optimized build
