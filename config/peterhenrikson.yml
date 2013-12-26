@@ -1,0 +1,15 @@
+db:
+  host: localhost
+  adapter: postgres
+  database: peterhenrikson
+  user: tkellen
+
+email:
+  to: tyler@sleekcode.net
+  from: donotreply@peterhenrikson.com
+  developer: tyler@sleekcode.net
+
+messages:
+  error_submission: Ack!  There are some errors with your submission, please try again.
+  error_unknown: An unknown error occurred, please contact tyler@sleekcode.net for help.
+  thankyou: "<h3 style='color:#fff;text-align:center'>Thanks for your message&mdash;I'll get back to you as soon as I can!</h3>"

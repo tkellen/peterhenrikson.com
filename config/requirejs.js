@@ -11,6 +11,7 @@ require.config({
 
   // map bower components to nice paths
   paths: {
+    site: 'lib/peterhenrikson/scripts',
     jquery: 'components/jquery/jquery',
     'amd-loader': 'components/amd-loader/amd-loader',
     'coffee-script': 'components/coffee-script/index',
@@ -23,6 +24,8 @@ require.config({
     waypoints: 'components/jquery-waypoints/waypoints',
     waypoints_sticky: 'components/jquery-waypoints/shortcuts/sticky-elements/waypoints-sticky',
     backstretch: 'components/jquery-backstretch/jquery.backstretch',
+    parsley: 'components/parsleyjs/parsley',
+    humane: 'components/humane-js/humane',
     forms: 'components/jquery-form/jquery.form'
   },
 
@@ -33,7 +36,7 @@ require.config({
     wookmark: ['jquery'],
     forms: ['jquery'],
     placeholder: ['jquery'],
-    backstretch: ['jquery']
+    parsley: ['jquery']
   },
 
   // modules not included in optimized build

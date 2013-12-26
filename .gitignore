@@ -1,5 +1,9 @@
-node_modules
+Gemfile.lock
+public/site.js
+public/style.css
 tmp
+log
+config/auth.yml
+node_modules
 components
-public
-config/auth.js
+art

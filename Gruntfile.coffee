@@ -4,47 +4,24 @@ module.exports = (grunt) ->
 
   grunt.initConfig
 
+    baseDir: 'lib/peterhenrikson'
+
     stylus:
       options:
         'include css': true
       css:
-        src: 'site/styles/style.styl'
+        src: '<%= baseDir %>/styles/style.styl'
         dest: 'public/style.css'
-
-    copy:
-      assets:
-        expand: true
-        cwd: 'site'
-        src: 'assets/**/*'
-        dest: 'public'
 
     watch:
       options:
         livereload: true
-      assets:
-        files: ['site/assets/**/*']
-        tasks: ['copy']
       site:
-        files: ['site/index.coffee']
-      views:
-        files: ['site/views/**/*']
-        tasks: ['express:development']
+        files: ['<%= baseDir %>/views/**/*',
+                '<%= baseDir %>/scripts/**/*']
       css:
-        files: ['site/styles/*']
+        files: ['<%= baseDir %>/styles/*']
         tasks: ['stylus']
-
-    clean:
-      assets: ['public/assets']
-
-    express:
-      options:
-        script: 'app.js'
-      production:
-        options:
-          node_env: 'production'
-      development:
-        options:
-          node_env: 'development'
 
     requirejs:
       options:
@@ -60,7 +37,14 @@ module.exports = (grunt) ->
         options:
           optimize: 'uglify2'
 
-  grunt.registerTask('work', ['stylus', 'express:development', 'watch'])
-  grunt.registerTask('production', ['clean', 'copy', 'requirejs:production', 'stylus'])
-  grunt.registerTask('default', ['work'])
+  grunt.registerTask 'rackup', ->
+    spawn = require('child_process').spawn
+    rackup = spawn('rackup')
+    rackup.stdout.on 'data', (data) ->
+      process.stdout.write('[rackup]: '+data.toString());
+    rackup.stderr.on 'data', (data) ->
+      process.stdout.write('[rackup]: '+data.toString());
 
+  grunt.registerTask('work', ['stylus', 'rackup', 'watch'])
+  grunt.registerTask('production', ['stylus', 'requirejs:production'])
+  grunt.registerTask('default', ['work'])

@@ -1,0 +1,13 @@
+source 'http://rubygems.org'
+
+gem 'rack'
+gem 'rack-contrib'
+gem 'thin'
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'pg'
+gem 'sequel'
+gem 'sequel_pg'
+gem 'sequel-noinflectors'
+gem 'slim'
+gem 'redcarpet'
