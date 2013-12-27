@@ -21,9 +21,9 @@ module PH
       slim :index
     end
 
-    get '/work' do
-      slim :work, :locals => {
-        :timeline => Timeline.all
+    get '/timeline' do
+      slim :timeline, :locals => {
+        :timeline => Timeline.published.all
       }
     end
 
