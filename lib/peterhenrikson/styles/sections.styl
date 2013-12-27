@@ -21,6 +21,22 @@ section
   h1
     color: #f4c532
 
+.circled
+  position: relative
+  margin: 0 auto 15px auto
+  width: 250px
+  height: 250px
+  border-radius: 50%
+  overflow: hidden
+  border: 4px solid rgba(255,255,255,.4)
+  transition: border-color .5s
+  &.sm
+    width: 200px
+    height: 200px
+
+  img
+    width: 100%
+
 @media (max-width: 767px)
   section
     padding-top: 75px

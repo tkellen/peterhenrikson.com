@@ -10,6 +10,7 @@ define (require) ->
   ajaxForm = require('cs!site/forms')
   isMobile = require('cs!site/ismobile')
   parallax = require('cs!site/parallax')
+  onHomePage = (window.location.pathname.substring(1) == "")
 
   $ ->
 
@@ -24,7 +25,10 @@ define (require) ->
     # make parallax images do their thing
     parallax($('.parallax'))
 
-    if !isMobile()
+    # if mobile device, or not on home page, lock menubar at top
+    if isMobile() || !onHomePage
+      $('nav').css('top', 0)
+    else
       # make navbar stick to top of page
       nav = $('nav')
       nav.waypoint 'sticky',
@@ -41,6 +45,4 @@ define (require) ->
         href = this.href.split('#')[1];
         $.scrollTo('#'+href,{duration:200,offset:10});
         e.preventDefault()
-    else
-      # fix menubar on mobile devices
-      $('nav').css('top', 0)
+

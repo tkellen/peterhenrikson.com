@@ -18,7 +18,11 @@ module PH
     end
 
     get '/' do
-      slim :index, :locals => {
+      slim :index
+    end
+
+    get '/work' do
+      slim :work, :locals => {
         :timeline => Timeline.all
       }
     end
