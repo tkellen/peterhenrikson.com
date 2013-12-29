@@ -9,9 +9,18 @@ module.exports = (grunt) ->
     stylus:
       options:
         'include css': true
+        paths: ['<%= baseDir %>/styles',
+                'components/']
       css:
         src: '<%= baseDir %>/styles/style.styl'
         dest: 'public/style.css'
+
+    copy:
+      fonts:
+        expand: true
+        cwd: 'components/Font-Awesome'
+        src: 'fonts/**'
+        dest: 'public'
 
     watch:
       options:
@@ -45,6 +54,6 @@ module.exports = (grunt) ->
     rackup.stderr.on 'data', (data) ->
       process.stdout.write('[rackup]: '+data.toString());
 
-  grunt.registerTask('work', ['stylus', 'rackup', 'watch'])
-  grunt.registerTask('production', ['stylus', 'requirejs:production'])
+  grunt.registerTask('work', ['copy', 'stylus', 'rackup', 'watch'])
+  grunt.registerTask('production', ['copy', 'stylus', 'requirejs:production'])
   grunt.registerTask('default', ['work'])

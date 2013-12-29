@@ -5,6 +5,7 @@ Sequel.migration do
       column :date_entry, Date, {:null=>false,:default=>:now.sql_function}
       column :title, String, {:null=>false}
       column :body, String
+      column :published, TrueFalse {:null=>false,:default=>true}
       index :date_entry
     end
   end

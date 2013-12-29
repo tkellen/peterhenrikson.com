@@ -1,8 +1,4 @@
 module PH
-  ##
-  #
-  # Sequel::Model for SEO data.
-  #
   class SEO < Sequel::Model
 
     set_dataset :page_seo

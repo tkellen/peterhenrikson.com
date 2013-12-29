@@ -6,6 +6,7 @@ define (require) ->
   require('forms')
   require('waypoints_sticky')
   require('parsley')
+  require('swiper')
 
   ajaxForm = require('cs!site/forms')
   isMobile = require('cs!site/ismobile')
@@ -13,6 +14,11 @@ define (require) ->
   onHomePage = (window.location.pathname.substring(1) == "")
 
   $ ->
+
+    $('.swiper-container').each (idx, el) ->
+      $(el).swiper
+        mode: 'horizontal'
+        loop: true
 
     # ajaxify forms
     $('form.ajax').each -> ajaxForm(@)

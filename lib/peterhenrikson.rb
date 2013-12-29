@@ -14,7 +14,6 @@ CONFIG = YAML::load(File.open('config/peterhenrikson.yml'))
 AUTH = YAML::load(File.open('config/auth.yml'))
 
 # Connect to database
-Sequel.extension(:core_extensions)
 DB = Sequel.connect(CONFIG['db'])
 
 # Load helpers.
@@ -27,6 +26,8 @@ require 'peterhenrikson/helpers/email'
 require 'peterhenrikson/models/email'
 require 'peterhenrikson/models/page_seo'
 require 'peterhenrikson/models/timeline'
+require 'peterhenrikson/models/project'
+require 'peterhenrikson/models/project_photo'
 
 # Load sinatra.
 require 'peterhenrikson/app'

@@ -18,7 +18,11 @@ module PH
     end
 
     get '/' do
-      slim :index
+      slim :index, :locals => {
+        :timberframing => Project.published.byCategoryId(1).all,
+        :grindbygg => Project.published.byCategoryId(2).all,
+        :design => Project.published.byCategoryId(3).all
+      }
     end
 
     get '/timeline' do

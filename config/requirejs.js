@@ -26,7 +26,8 @@ require.config({
     backstretch: 'components/jquery-backstretch/jquery.backstretch',
     parsley: 'components/parsleyjs/parsley',
     humane: 'components/humane-js/humane',
-    forms: 'components/jquery-form/jquery.form'
+    forms: 'components/jquery-form/jquery.form',
+    swiper: 'components/swiper/dist/idangerous.swiper-2.4'
   },
 
   shim: {
@@ -36,7 +37,8 @@ require.config({
     wookmark: ['jquery'],
     forms: ['jquery'],
     placeholder: ['jquery'],
-    parsley: ['jquery']
+    parsley: ['jquery'],
+    swiper: ['jquery']
   },
 
   // modules not included in optimized build

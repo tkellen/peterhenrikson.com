@@ -9,6 +9,9 @@ email:
   from: donotreply@peterhenrikson.com
   developer: tyler@sleekcode.net
 
+assets:
+  s3: //s3.amazonaws.com/s3.peterhenrikson.com
+
 messages:
   error_submission: Ack!  There are some errors with your submission, please try again.
   error_unknown: An unknown error occurred, please contact tyler@sleekcode.net for help.

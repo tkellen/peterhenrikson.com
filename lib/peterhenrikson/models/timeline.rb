@@ -1,8 +1,4 @@
 module PH
-  ##
-  #
-  # Sequel::Model for Timeline entries
-  #
   class Timeline < Sequel::Model
 
     dataset_module do

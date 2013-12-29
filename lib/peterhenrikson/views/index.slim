@@ -1,8 +1,8 @@
 section#home.fullheight.parallax
   .content
     .logo
-      object type='image/svg+xml' data='/assets/img/logo.svg'
-        img src='/assets/img/logo.png'
+      object type='image/svg+xml' data='/img/logo.svg'
+        img src='/img/logo.png'
     h1 Peter Henrikson <div class='dagger'></div> Timber Framer
 
     a.scroll.btn href='#about' LEARN MORE
@@ -14,7 +14,7 @@ section#about.fullheight
     .peter
       h1 Timber Frame Education, Design &amp; Joinery
       .circled.sm
-        img src='/assets/img/peter.jpg' alt='Peter Henrikson'
+        img src='/img/peter.jpg' alt='Peter Henrikson'
       p Helping people with their timber frame dreams since 1998.
       p
         h2
@@ -32,24 +32,18 @@ section#services.fullheight.parallax
     .row
       .five.columns.service
         h2 EDUCATION
-        javascript:
-          window.ecount = 0;
         .circled.sm
-          img src='/assets/img/education0.jpg' onclick="window.ecount++; if(window.ecount > 3) {window.ecount=0} this.src='/assets/img/education'+window.ecount+'.jpg';"
+          img src='/img/education.jpg'
         p Teaching classes in basic and Norwegian style Grindbygg framing at <a href='http://northhouse.org/'>North House Folk School</a> and elsewhere.
       .six.columns.service
         h2 DESIGN
-        javascript:
-          window.dcount = 0;
         .circled.sm
-          img src='/assets/img/design0.jpg' onclick="window.dcount++; if(window.dcount > 3) {window.dcount=0} this.src='/assets/img/design'+window.dcount+'.jpg';"
+          img src='/img/design.jpg'
         p Specializing in design and frame plan sets for owner builders who want to cut the joinery for their own frames.
       .five.columns.service
         h2 JOINERY
-        javascript:
-          window.jcount = 0;
         .circled.sm
-          img src='/assets/img/joinery0.jpg' alt='Peter Henrikson' onclick="window.jcount++; if(window.jcount > 4) {window.jcount=0} this.src='/assets/img/joinery'+window.jcount+'.jpg';"
+          img src='/img/joinery.jpg' alt='Peter Henrikson'
         p Constructing small and unique frames using traditional joinery with the subtle effects of hand tools.
 
 section#work.fullheight
@@ -57,19 +51,21 @@ section#work.fullheight
     h1.contrast My Work
     .row.sixteen.columns
       h2 TIMBER FRAMING
-      .circled.sm
-        img src='/assets/img/education0.jpg'
-      p
+      .swiper-container
+        .swiper-wrapper
+          == partial :project, :collection => timberframing
+
     .row.sixteen.columns
       h2 GRINDBYGG
-      .circled.sm
-        img src='/assets/img/design0.jpg'
+      .swiper-container
+        .swiper-wrapper
+          == partial :project, :collection => grindbygg
       p
     .row.sixteen.columns
       h2 DESIGN
-      .circled.sm
-        img src='/assets/img/joinery0.jpg'
-      p
+      .swiper-container
+        .swiper-wrapper
+          == partial :project, :collection => design
 
 section#contact
   h1 Contact Me
