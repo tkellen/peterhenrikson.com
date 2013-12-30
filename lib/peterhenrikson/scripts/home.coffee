@@ -10,7 +10,7 @@ define (require) ->
   # make parallax images do their thing
   parallax($('.parallax'))
 
-  # make service images crossfade
+  # make service images crossfade, with slight delay between each
   $('.cycle').each (idx, el) ->
     setTimeout((->$(el).cycle({timeout: 3000})), idx*200)
 
