@@ -13,8 +13,12 @@ section#about.fullheight
   .container
     .peter
       h1 Timber Frame Education, Design &amp; Joinery
-      .circled
-        img src='/img/peter.jpg' alt='Peter Henrikson'
+      .circled.cycle
+        img src='/img/peter/0.jpg'
+        img src='/img/peter/1.jpg'
+        img src='/img/peter/2.jpg'
+        img src='/img/peter/3.jpg'
+        img src='/img/peter/4.jpg'
       p Helping people with their timber frame dreams since 1998.
       p
         h2
@@ -37,6 +41,7 @@ section#services.fullheight.parallax
           img src='/img/services/education1.jpg'
           img src='/img/services/education2.jpg'
           img src='/img/services/education3.jpg'
+          img src='/img/services/education4.jpg'
         p Teaching classes in basic and Norwegian style Grindbygg framing at <a href='http://northhouse.org/'>North House Folk School</a> and elsewhere.
       .six.columns.service
         h2 DESIGN
@@ -53,7 +58,16 @@ section#services.fullheight.parallax
           img src='/img/services/joinery1.jpg'
           img src='/img/services/joinery2.jpg'
           img src='/img/services/joinery3.jpg'
+          img src='/img/services/joinery4.jpg'
         p Constructing small and unique frames using traditional joinery with the subtle effects of hand tools.
+
+section.fullheight
+  .container
+    h1 Grindbygg
+    .sixteen.columns
+      .swiper-container
+        .swiper-wrapper
+          == partial :project, :collection => grindbygg
 
 section#work.fullheight
   .container
@@ -63,13 +77,6 @@ section#work.fullheight
         .swiper-wrapper
           == partial :project, :collection => timberframing
 
-section.fullheight
-  .container
-    h1 Grindbygg
-    .sixteen.columns
-      .swiper-container
-        .swiper-wrapper
-          == partial :project, :collection => grindbygg
 
 section.fullheight
   .container

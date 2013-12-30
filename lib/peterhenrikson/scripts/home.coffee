@@ -11,8 +11,8 @@ define (require) ->
   parallax($('.parallax'))
 
   # make service images crossfade
-  $('.cycle').cycle
-    timeout: 2000
+  $('.cycle').each (idx, el) ->
+    setTimeout((->$(el).cycle({timeout: 3000})), idx*200)
 
   # make anchor links scroll nicely
   $('.scroll').click (e) ->
