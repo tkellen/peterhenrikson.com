@@ -27,7 +27,8 @@ require.config({
     parsley: 'components/parsleyjs/parsley',
     humane: 'components/humane-js/humane',
     forms: 'components/jquery-form/jquery.form',
-    swiper: 'components/swiper/dist/idangerous.swiper-2.4'
+    swiper: 'components/swiper/dist/idangerous.swiper-2.4',
+    cycle: 'components/cycle/jquery.cycle.lite'
   },
 
   shim: {
@@ -38,7 +39,8 @@ require.config({
     forms: ['jquery'],
     placeholder: ['jquery'],
     parsley: ['jquery'],
-    swiper: ['jquery']
+    swiper: ['jquery'],
+    cycle: ['jquery']
   },
 
   // modules not included in optimized build

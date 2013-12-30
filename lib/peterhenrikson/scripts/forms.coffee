@@ -1,8 +1,11 @@
 define (require) ->
 
+  require('jquery')
+  require('forms')
+  require('parsley')
   humane = require('cs!site/humane')
 
-  (form) ->
+  formHandler = (form) ->
     # save button text
     submit = $(form).find("input[type=submit]")
     submit.data('buttontext', submit.val())
@@ -42,3 +45,7 @@ define (require) ->
           Recaptcha.reload() if window.Recaptcha
 
       false
+
+  $ ->
+    # ajaxify forms
+    $('form.ajax').each -> formHandler(@)

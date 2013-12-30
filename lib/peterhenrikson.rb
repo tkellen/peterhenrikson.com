@@ -33,4 +33,8 @@ require 'peterhenrikson/models/project_photo'
 require 'peterhenrikson/app'
 
 # Load controllers.
-require 'peterhenrikson/controllers/www'
+require 'peterhenrikson/controllers/filters'
+require 'peterhenrikson/controllers/index'
+require 'peterhenrikson/controllers/contact'
+require 'peterhenrikson/controllers/projects'
+require 'peterhenrikson/controllers/timeline'

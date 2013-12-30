@@ -1,5 +1,7 @@
 #contact
-  background-color: darken(timeBgOdd,70%)
+  &.parallax
+    background: #000 url("/img/contact.jpg") fixed no-repeat
+    background-size: cover
 
   form
     width: 100%
@@ -24,7 +26,7 @@
     &:focus
       background: #fff
       box-shadow: 0
-      border: 3px solid darken(timeLine,40%)
+      border: 3px solid lighten(themeColor,20%)
       outline: none
 
     &:hover
@@ -37,13 +39,13 @@
   input[type=submit]
     width: 100%
     cursor: pointer
-    background-color: darken(timeLine,70%)
+    background-color: darken(themeColor,10%)
     color: white
     font-size: 24px
     padding: 20px 0
     transition: background-color .25s
     &:hover
-      background-color: darken(timeLine,50%)
+      background-color: darken(themeColor,50%)
 
   .recaptcha
     background-color: #fff

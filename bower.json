@@ -16,6 +16,7 @@
     "parsleyjs": "~1.2.2",
     "swiper": "~2.4.1",
     "Font-Awesome": "~4.0.3",
-    "Skeleton": "git@github.com:dhg/Skeleton.git"
+    "Skeleton": "git@github.com:dhg/Skeleton.git",
+    "cycle": "git@github.com:malsup/cycle.git#~3.0.3"
   }
 }
