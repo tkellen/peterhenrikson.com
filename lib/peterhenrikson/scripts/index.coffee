@@ -1,15 +1,19 @@
 define (require) ->
 
   require('jquery')
+  initHome = require('cs!site/home')
+  initNav = require('cs!site/nav')
+  initForms = require('cs!site/forms')
+  initHandlers = require('cs!site/handlers')
 
+  isMobile = require('cs!site/ismobile')
   onHomePage = (window.location.pathname.substring(1) == "")
 
   $ ->
     if onHomePage
-      require('cs!site/home')
-      require('cs!site/nav')
-    else
-      $('nav').css('top', 0)
+      initHome()
+      if !isMobile()
+        initNav()
 
-    require('cs!site/forms')
-    require('cs!site/handlers')
+    initForms()
+    initHandlers()

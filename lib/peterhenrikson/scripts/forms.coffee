@@ -46,6 +46,6 @@ define (require) ->
 
       false
 
-  $ ->
+  ->
     # ajaxify forms
     $('form.ajax').each -> formHandler(@)
