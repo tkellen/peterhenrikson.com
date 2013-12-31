@@ -12,7 +12,7 @@ define (require) ->
 
   # make service images crossfade, with slight delay between each
   $('.cycle').each (idx, el) ->
-    setTimeout((->$(el).cycle({timeout: 3000})), idx*200)
+    setTimeout((->$(el).cycle({timeout: 3000})), idx*400)
 
   # make anchor links scroll nicely
   $('.scroll').click (e) ->
@@ -21,7 +21,17 @@ define (require) ->
     e.preventDefault()
 
   # enable swiping for projects
-  $('.swiper-container').each (idx, el) ->
-    $(el).swiper
+  $('.panel').each (idx, el) ->
+    el = $(el)
+    swiper = el.find('.swiper-container').swiper
       mode: 'horizontal'
-      loop: true
+      loop: true,
+      grabCursor: true
+      paginationClickable: true
+
+    el.find('.left').on 'click', (e) ->
+      e.preventDefault()
+      swiper.swipePrev()
+    el.find('.right', el).on 'click', (e) ->
+      e.preventDefault()
+      swiper.swipeNext()

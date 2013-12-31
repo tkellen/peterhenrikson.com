@@ -23,7 +23,6 @@ require.config({
     placeholder: 'components/jquery-placeholder/jquery.placeholder',
     waypoints: 'components/jquery-waypoints/waypoints',
     waypoints_sticky: 'components/jquery-waypoints/shortcuts/sticky-elements/waypoints-sticky',
-    backstretch: 'components/jquery-backstretch/jquery.backstretch',
     parsley: 'components/parsleyjs/parsley',
     humane: 'components/humane-js/humane',
     forms: 'components/jquery-form/jquery.form',

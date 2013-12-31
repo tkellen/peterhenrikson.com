@@ -1,4 +1,5 @@
 .swiper-slide
-  == item.title
-  - if item.featuredPhoto
-    .panel style="background-image: url('#{item.featuredPhoto.src}')"
+  .content-slide
+    h3== item.title
+    - if item.featuredPhoto
+      img.shadow src==item.featuredPhoto.src

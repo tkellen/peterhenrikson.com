@@ -1,32 +1,40 @@
-#work
+.work
+  background-color: #000
 
-  .service
+.swiper-container
+  height: 100%
+
+.panel
+  position: relative
+  width: 100%
+  height: 500px
+  box-sizing: border-box
+  padding: 30px 40px
+
+  .arrow
+    position: absolute
+    top: 50%
+    margin-top: 15px
+    width: 17px
+    height: 30px
+    border: none
+    cursor: pointer
+    outline: none
+    background-image: url(img/arrows.png)
+    background-repeat: no-repeat
+    background-color: transparent
+    &.left
+      background-position: left top
+      left: 10px
+    &.right
+      background-position: left bottom
+      right: 10px
+
+.content-slide
+  padding: 20px
+  color: #fff
+  h3
     text-align: center
-    color: #ddd
-    padding-bottom: 15px
-    h2
-      margin-bottom: 15px
-      font-size: 38px
-    i
-      text-shadow: none
-      margin: 15px auto
-      display: block
-      font-size: 20px
-      display: block
-      height: 50px
-      width: 50px
-      border: 4px solid lighten(themeColor, 10%)
-      border-radius: 50%
-      transition: color .3s
-      cursor: pointer
-      text-align: center
-      line-height: 50px
-      transition: background-color .25s
-    &:hover
-      i
-        background-color: themeColor
-
-  .panel
-    background-size: cover
-    height: 100%
+    margin-bottom: 5px
+  img
     width: 100%

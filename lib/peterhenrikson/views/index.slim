@@ -56,30 +56,31 @@ section#services.fullheight.parallax
         h2 JOINERY
         p Constructing small and unique frames using traditional joinery with the subtle effects of hand tools.
 
-section.fullheight
-  .container
-    h1 Grindbygg
-    .sixteen.columns
-      .swiper-container
-        .swiper-wrapper
-          == partial :project, :collection => grindbygg
-
-section#work.fullheight
-  .container
-    h1 Timber Framing
-    .sixteen.columns
-      .swiper-container
-        .swiper-wrapper
-          == partial :project, :collection => timberframing
+section.work
+  h1 Grindbygg
+  .panel
+    button.arrow.left
+    button.arrow.right
+    .swiper-container
+      .swiper-wrapper
+        == partial :project, :collection => grindbygg
 
 
-section.fullheight
-  .container
-    h1 Design
-    .sixteen.columns
-      .swiper-container
-        .swiper-wrapper
-          == partial :project, :collection => design
+  h1 Timber Framing
+  .panel
+    button.arrow.left
+    button.arrow.right
+    .swiper-container
+      .swiper-wrapper
+        == partial :project, :collection => timberframing
+
+  h1 Design
+  .panel
+    button.arrow.left
+    button.arrow.right
+    .swiper-container
+      .swiper-wrapper
+        == partial :project, :collection => design
 
 section#contact.parallax
   h1.shadow Contact Me
