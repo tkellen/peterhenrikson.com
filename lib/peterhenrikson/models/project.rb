@@ -9,6 +9,9 @@ module PH
       def byCategoryId(id)
         where(:category_id=>id)
       end
+      def bySlug(slug)
+        where(:url_slug=>slug)
+      end
     end
 
     def body
@@ -21,6 +24,10 @@ module PH
 
     def stamp
       date_project.strftime("%B, %Y")
+    end
+
+    def url
+      "/project/#{url_slug}"
     end
 
   end
