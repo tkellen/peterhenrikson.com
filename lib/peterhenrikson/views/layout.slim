@@ -2,7 +2,7 @@ doctype html
 html lang='en'
   head
     == partial :head
-  body
+  body class==(@mobile ? "mobile" : nil)
     == partial :header
     == yield
     == partial :footer

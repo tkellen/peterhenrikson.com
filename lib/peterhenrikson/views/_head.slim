@@ -2,7 +2,7 @@ meta charset='utf8'
 meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'
 meta name='viewport' content='width=device-width, initial-scale=1.0'
 
-title== @title
+title==@title
 meta name='description' content=@description
 meta name='author' content='Peter Henrikson'
 
@@ -11,3 +11,8 @@ link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:200|Marc
 /[ if lt IE 9 ]
   script src='//html5shiv.googlecode.com/svn/trunk/html5.js'
   link rel='stylesheet' href==assetPath('ie.css')
+- if @mobile
+  css:
+    section { background-attachment: scroll !important; }
+
+

@@ -1,8 +1,6 @@
 define (require) ->
 
-  require('jquery')
-  require('scrollto')
-  require('cycle')
+  $ = require('jquery'); require('scrollto'); require('cycle');
   parallax = require('cs!site/parallax')
   Masonry = require('masonry')
 

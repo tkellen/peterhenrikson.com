@@ -21,8 +21,6 @@ require.config({
     cs: 'require-cs/cs',
     scrollto: 'jquery.scrollTo/jquery.scrollTo',
     placeholder: 'jquery-placeholder/jquery.placeholder',
-    waypoints: 'jquery-waypoints/waypoints',
-    waypoints_sticky: 'jquery-waypoints/shortcuts/sticky-elements/waypoints-sticky',
     parsley: 'parsleyjs/parsley',
     humane: 'humane-js/humane',
     forms: 'jquery-form/jquery.form',
@@ -32,8 +30,6 @@ require.config({
   },
 
   shim: {
-    waypoints_sticky: ['waypoints'],
-    waypoints: ['jquery'],
     scrollto: ['jquery'],
     wookmark: ['jquery'],
     forms: ['jquery'],

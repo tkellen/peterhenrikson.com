@@ -1,7 +1,6 @@
 define (require) ->
 
   $ = require('jquery')
-  isMobile = require('cs!site/ismobile')
 
   parallaxImage = (img, opts) ->
     {screenTop, screenWidth, screenBottom} = opts
@@ -15,18 +14,25 @@ define (require) ->
       backgroundPosition = '0px '+parseInt(parallax)+'px'
     img.css('backgroundPosition', backgroundPosition)
 
+  updateImages = (images) ->
+    opts = {}
+    opts.screenTop = $(window).scrollTop()
+    opts.screenWidth = $(window).width()
+    opts.screenBottom = opts.screenTop + $(window).height()
+    images.each ->
+      parallaxImage($(this), opts)
+
   (images) ->
-    if isMobile()
-      # disable parallax images on mobile devices
-      images.css('background-attachment', 'scroll')
-    else
-      $(window).resize -> $(window).trigger('scroll')
-      $(window).scroll ->
-        opts = {}
-        opts.screenTop = $(window).scrollTop()
-        opts.screenWidth = $(window).width()
-        opts.screenBottom = opts.screenTop + $(window).height()
-        images.each ->
-          parallaxImage($(this), opts)
+    $(window).resize ->
+      window.didResize = true
+    $(window).scroll ->
+      updateImages(images)
+
+     setInterval((->
+       if window.didResize
+         window.didResize = false
+         updateImages(images)
+     ), 250)
+
 
 

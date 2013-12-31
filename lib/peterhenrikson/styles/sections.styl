@@ -13,11 +13,6 @@ section
     font-size: 60px
     color: #fff
 
-.white
-  background: none
-  background-color: #eee
-  h1
-    color: #f4c532
 
 .circled
   position: relative
@@ -37,22 +32,30 @@ section
     width: 100%
     display: block
 
-@media (max-width: 767px)
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px)
+  .circled.sm
+    width: 190px !important
+    height: 190px !important
+
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px)
   section
-    padding-top: 75px
+    padding: 75px 0
     h1
       font-size: 45px !important
     .content
       text-align: center
+  .circled
+    width: 225px !important
+    height: 225px !important
 
-
-@media (max-width: 420px)
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px)
   section
     height: auto
-    padding-top: 20px
+    padding: 20px 0
     h1
       font-size: 30px !important
       margin: 18px 0 35px 0
-  .circled
-    width: 200px !important
-    height: 200px !important

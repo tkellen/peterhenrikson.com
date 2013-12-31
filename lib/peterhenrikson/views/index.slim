@@ -1,5 +1,5 @@
-section#home.fullheight.parallax
-  .content.shadow
+section#home.fullheight.parallax.shadow
+  .content
     .logo
       object type='image/svg+xml' data='/img/logo.svg'
         img src='/img/logo.png'
@@ -24,8 +24,8 @@ section#about.fullheight.parallax.shadow
     h2.tel
       a href='tel:218.370.8415' 218.370.8415
 
-section#services.fullheight
-  .container.shadow
+section#services.fullheight.shadow
+  .container
     h1 Timber Framing Services
     .row
       .description.fourteen.columns.offset-by-one
@@ -77,18 +77,19 @@ section.work.design.fullheight
     .panel
       == partial :project_slide, :collection => design
 
-section#contact
+section#contact.parallax
   h1.shadow Contact Me
   .container
-    form.ajax.sixteen.columns.alpha.omega action='/contact' method='post'
-      input.iconed name='contact[name]' required='true' type='text' placeholder=='&#61447; Name'
-      input.iconed name='contact[email]' required='true' type='text' placeholder=='&#xf0e0; Email'
-      input.iconed name='contact[phone]' required='true' type='text' placeholder=='&#xf095; Phone'
-      textarea.iconed name='contact[message]' required='true' placeholder='Message'
-      / disable recaptcha until needed
-      /.recaptcha.right
-      /  == partial :recaptcha, :locals => { :theme => 'clean' }
-      input type='submit' value='Send Your Message'
+    .sixteen.columns
+      form.ajax action='/contact' method='post'
+        input.iconed name='contact[name]' required='true' type='text' placeholder=='&#61447; Name'
+        input.iconed name='contact[email]' required='true' type='text' placeholder=='&#xf0e0; Email'
+        input.iconed name='contact[phone]' required='true' type='text' placeholder=='&#xf095; Phone'
+        textarea.iconed name='contact[message]' required='true' placeholder='Message'
+        / disable recaptcha until needed
+        /.recaptcha.right
+        /  == partial :recaptcha, :locals => { :theme => 'clean' }
+        input type='submit' value='Send Your Message'
 
 .vcard.shadow
   p.adr
