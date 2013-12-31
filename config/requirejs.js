@@ -1,7 +1,7 @@
 require.config({
 
   // override data-main from script tag during debug mode
-  baseUrl: '/',
+  baseUrl: '/components',
 
   // automatically require on page load in debug mode
   deps: ['cs!site/index'],
@@ -11,23 +11,24 @@ require.config({
 
   // map bower components to nice paths
   paths: {
-    site: 'lib/peterhenrikson/scripts',
-    jquery: 'components/jquery/jquery',
-    'amd-loader': 'components/amd-loader/amd-loader',
-    'coffee-script': 'components/coffee-script/index',
-    text: 'components/requirejs-plugins/lib/text',
-    json: 'components/requirejs-plugins/src/json',
-    cjs: 'components/cjs/cjs',
-    cs: 'components/require-cs/cs',
-    scrollto: 'components/jquery.scrollTo/jquery.scrollTo',
-    placeholder: 'components/jquery-placeholder/jquery.placeholder',
-    waypoints: 'components/jquery-waypoints/waypoints',
-    waypoints_sticky: 'components/jquery-waypoints/shortcuts/sticky-elements/waypoints-sticky',
-    parsley: 'components/parsleyjs/parsley',
-    humane: 'components/humane-js/humane',
-    forms: 'components/jquery-form/jquery.form',
-    swiper: 'components/swiper/dist/idangerous.swiper-2.4',
-    cycle: 'components/cycle/jquery.cycle.lite'
+    site: '../lib/peterhenrikson/scripts',
+    jquery: 'jquery/jquery',
+    'amd-loader': 'amd-loader/amd-loader',
+    'coffee-script': 'coffee-script/index',
+    text: 'requirejs-plugins/lib/text',
+    json: 'requirejs-plugins/src/json',
+    cjs: 'cjs/cjs',
+    cs: 'require-cs/cs',
+    scrollto: 'jquery.scrollTo/jquery.scrollTo',
+    placeholder: 'jquery-placeholder/jquery.placeholder',
+    waypoints: 'jquery-waypoints/waypoints',
+    waypoints_sticky: 'jquery-waypoints/shortcuts/sticky-elements/waypoints-sticky',
+    parsley: 'parsleyjs/parsley',
+    humane: 'humane-js/humane',
+    forms: 'jquery-form/jquery.form',
+    swiper: 'swiper/dist/idangerous.swiper-2.4',
+    cycle: 'cycle/jquery.cycle.lite',
+    masonry: 'masonry/masonry',
   },
 
   shim: {
@@ -39,7 +40,8 @@ require.config({
     placeholder: ['jquery'],
     parsley: ['jquery'],
     swiper: ['jquery'],
-    cycle: ['jquery']
+    cycle: ['jquery'],
+    masonry: ['jquery']
   },
 
   // modules not included in optimized build

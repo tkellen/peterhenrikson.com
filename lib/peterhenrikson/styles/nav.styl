@@ -1,14 +1,14 @@
 nav
-  position: fixed
-  top: 0
+  position: relative
   z-index: 100
   width: 100%
-  color: #fff
   background-color: #111
-  transition: top .25s
+  box-shadow: 0 3px 3px rgba(0,0,0,.30)
+  -webkit-transform: translateZ(400px) // push up on z axis
   clearfix()
   &.stuck
-    top: 0px !important
+    position: fixed
+    top: 0
 
   .brand
     float: left
@@ -22,7 +22,6 @@ nav
     height: 35px
     width: 35px
     margin: 12px 10px 0 10px
-
   ul
     display: block
     width: 100%
@@ -42,17 +41,28 @@ nav
 // mobile only
 @media only screen and (max-width: 767px)
   nav
-    position: fixed
+    position: absolute
     top: 0
     display: block
-    height: 45px
+    text-align: center
     .logosmall, .brand
       display: none
     ul
       height: auto
-      text-align: center
-      margin-top: 10px
+      margin: 10px -15px 10px 0
       li
         margin-right: 0 !important
         a
           font-size: 14px
+
+//@media (max-width: 420px)
+//  #home
+//    margin-top: 120px
+//  nav
+//    ul
+//      li
+//        width: 100%
+//        display: block
+
+
+

@@ -2,12 +2,18 @@ define (require) ->
 
   require('jquery')
   require('scrollto')
-  require('swiper')
   require('cycle')
+  parallax = require('cs!site/parallax')
+  Masonry = require('masonry')
 
   ->
-
-    parallax = require('cs!site/parallax')
+    $('.panel').each (idx, el) ->
+      new Masonry(el, {
+        itemSelector: '.project'
+        columnWidth: 300
+        gutter: 10
+        isFitWidth: true
+      })
 
     # make parallax images do their thing
     parallax($('.parallax'))
@@ -22,18 +28,3 @@ define (require) ->
       $.scrollTo('#'+href,{duration:200,offset:10});
       e.preventDefault()
 
-    # enable swiping for projects
-    $('.panel').each (idx, el) ->
-      el = $(el)
-      swiper = el.find('.swiper-container').swiper
-        mode: 'horizontal'
-        loop: true,
-        grabCursor: true
-        paginationClickable: true
-
-      el.find('.left').on 'click', (e) ->
-        e.preventDefault()
-        swiper.swipePrev()
-      el.find('.right', el).on 'click', (e) ->
-        e.preventDefault()
-        swiper.swipeNext()

@@ -1,15 +1,17 @@
 section#home.fullheight.parallax
-  .content
+  .content.shadow
     .logo
       object type='image/svg+xml' data='/img/logo.svg'
         img src='/img/logo.png'
-    h1.shadow Peter Henrikson <div class='dagger'></div> Timber Framer
+    h1 Peter Henrikson <div class='dagger'></div> Timber Framing
 
     a.scroll.btn href='#about' LEARN MORE
     a.scroll.down-arrow href='#about'
       i.fa.fa-angle-down
 
-section#about.fullheight
+== partial :nav
+
+section#about.fullheight.parallax.shadow
   .container
     h1 Timber Frame Education, Design &amp; Joinery
     .circled.cycle
@@ -19,15 +21,15 @@ section#about.fullheight
       img src='/img/peter/3.jpg'
       img src='/img/peter/4.jpg'
     p.tagline Helping people with their timber frame dreams since 1998.
-    h2
+    h2.tel
       a href='tel:218.370.8415' 218.370.8415
 
-section#services.fullheight.parallax
-  .container
+section#services.fullheight
+  .container.shadow
     h1 Timber Framing Services
     .row
-      .services.fourteen.columns.offset-by-one.shadow
-        p style="padding: 0 20px" For me, timber framing is a fascinating blend of right and left brain, of structure and form.  Whether I am sharing information in a class, designing a frame and producing shop drawings for an owner-builder, or cutting joinery myself, I'm always focused on creating a structure of lasting beauty.
+      .description.fourteen.columns.offset-by-one
+        p For me, timber framing is a fascinating blend of right and left brain, of structure and form.  Whether I am sharing information in a class, designing a frame and producing shop drawings for an owner-builder, or cutting joinery myself, I'm always focused on creating a structure of lasting beauty.
     .row
       .five.columns.service
         .circled.sm.cycle
@@ -57,33 +59,25 @@ section#services.fullheight.parallax
         p Constructing small and unique frames using traditional joinery with the subtle effects of hand tools.
 
 a#work
-section.work
-  h1 Grindbygg
-  .panel
-    button.arrow.left
-    button.arrow.right
-    .swiper-container
-      .swiper-wrapper
-        == partial :project, :collection => grindbygg
+section.work.timberframing.fullheight
+  .container
+    h1 Timber Framing
+    .panel
+      == partial :project_slide, :collection => timberframing
 
+section.work.grindbygg.fullheight
+  .container
+    h1 Grindbygg
+    .panel
+      == partial :project_slide, :collection => grindbygg
 
-  h1 Timber Framing
-  .panel
-    button.arrow.left
-    button.arrow.right
-    .swiper-container
-      .swiper-wrapper
-        == partial :project, :collection => timberframing
+section.work.design.fullheight
+  .container
+    h1 Design
+    .panel
+      == partial :project_slide, :collection => design
 
-  h1 Design
-  .panel
-    button.arrow.left
-    button.arrow.right
-    .swiper-container
-      .swiper-wrapper
-        == partial :project, :collection => design
-
-section#contact.parallax
+section#contact
   h1.shadow Contact Me
   .container
     form.ajax.sixteen.columns.alpha.omega action='/contact' method='post'
@@ -95,3 +89,15 @@ section#contact.parallax
       /.recaptcha.right
       /  == partial :recaptcha, :locals => { :theme => 'clean' }
       input type='submit' value='Send Your Message'
+
+.vcard.shadow
+  p.adr
+    span.street-address 18 Hawk Lane
+    '  &Dagger;
+    span.region
+     ' Grand Marais, MN
+    span.postal-code 55604
+  h2.tel
+    a href='tel:218.370.8415' 218.370.8415
+
+

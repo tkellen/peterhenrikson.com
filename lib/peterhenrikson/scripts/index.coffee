@@ -1,6 +1,6 @@
 define (require) ->
 
-  require('jquery')
+  $ = require('jquery')
   initHome = require('cs!site/home')
   initNav = require('cs!site/nav')
   initForms = require('cs!site/forms')

@@ -34,9 +34,9 @@ module.exports = (grunt) ->
 
     requirejs:
       options:
-        baseUrl: '',
-        mainConfigFile: 'config/requirejs.js',
-        name: 'components/almond/almond',
+        baseUrl: 'components'
+        mainConfigFile: 'config/requirejs.js'
+        include: 'almond/almond'
         out: 'public/site.js'
 
       development:

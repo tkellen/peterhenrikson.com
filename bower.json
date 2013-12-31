@@ -14,9 +14,12 @@
     "jquery-form": "~3.46.0",
     "humane-js": "~3.1.0",
     "parsleyjs": "~1.2.2",
-    "swiper": "~2.4.1",
     "Font-Awesome": "~4.0.3",
     "Skeleton": "git@github.com:dhg/Skeleton.git",
-    "cycle": "git@github.com:malsup/cycle.git#~3.0.3"
+    "cycle": "git@github.com:malsup/cycle.git#~3.0.3",
+    "masonry": "~3.1.4"
+  },
+  "resolutions": {
+    "jquery": "~2.0.0"
   }
 }
