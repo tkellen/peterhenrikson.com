@@ -4,10 +4,8 @@ Sequel.migration do
       primary_key :id
       column :title, String, {:null=>false}
       column :description, String
-      column :price, BigDecimal
       column :url_slug, String, {:null=>false}
-      column :url_photo, String
-      column :url_file, String
+      column :price, BigDecimal
       column :published, TrueClass, {:null=>false,:default=>true}
     end
     create_table(:product_photo) do

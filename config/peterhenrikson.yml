@@ -5,7 +5,7 @@ db:
   user: tkellen
 
 email:
-  to: tyler@sleekcode.net
+  to: peter@peterhenrikson.com
   from: donotreply@peterhenrikson.com
   developer: tyler@sleekcode.net
 

@@ -5,6 +5,7 @@ define (require) ->
   initNav = require('cs!site/nav')
   initForms = require('cs!site/forms')
   initHandlers = require('cs!site/handlers')
+  initMasonry = require('cs!site/masonry')
   isMobile = require('cs!site/ismobile')
   onHomePage = (window.location.pathname.substring(1) == "")
 
@@ -13,5 +14,6 @@ define (require) ->
       initHome()
       initNav()
 
+    initMasonry()
     initForms()
     initHandlers()

@@ -21,7 +21,7 @@ module PH
     end
 
     def descriptionHTML
-      Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(description)
+      Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(description||"")
     end
 
     def featuredPhoto

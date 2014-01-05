@@ -1,6 +1,7 @@
-section#project
+section#project.smallpad
   .container
     h1==project.title
     ==project.descriptionHTML
-    - if project.featuredPhoto
-      img src==project.featuredPhoto.url
+    - project.photos.each do |photo|
+      img src==photo.url
+      br

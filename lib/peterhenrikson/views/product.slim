@@ -1,0 +1,8 @@
+section#product.smallpad
+  .container
+    h1=="#{product.title} - $#{product.price.to_i}"
+    == partial :paypal, :locals => { :item => product }
+
+    ==product.descriptionHTML
+    - if product.featuredPhoto
+      img src==product.featuredPhoto.url

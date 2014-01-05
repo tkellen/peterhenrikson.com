@@ -10,12 +10,19 @@ module PH
 
     dataset_module do
       def published
-        where(:published=>true).order(:date_project)
+        where(:published=>true).order(:id)
+      end
+      def bySlug(slug)
+        where(:url_slug=>slug)
       end
     end
 
+    def productId
+      url_slug
+    end
+
     def descriptionHTML
-      Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(description)
+      Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(description||"")
     end
 
     def featuredPhoto

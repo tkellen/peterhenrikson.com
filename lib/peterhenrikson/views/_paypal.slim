@@ -1,0 +1,12 @@
+form action="https://www.paypal.com/cgi-bin/webscr" method="post"
+  input type="hidden" name="cmd" value="_cart"
+  input type="hidden" name="add" value="1"
+  input type="hidden" name="business" value==CONFIG['email']['to']
+  input type="hidden" name="item_name" value=item.title
+  input type="hidden" name="item_number" value=item.productId
+  input type="hidden" name="amount" value=item.price.to_f
+  input type="hidden" name="return" value="#{request.host}/thankyou"
+  input type="hidden" name="undefined_quantity" value="1"
+  input type="image" style="border:none;float:left" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_SM.gif" name="submit"
+  strong style="font-size:12px;float:left;height:31px;line-height:31px" #{item.title} ($#{'%.2f' %(item.price.to_f)})
+  br.clear

@@ -11,6 +11,7 @@ section#home.fullheight.parallax.shadow
 
 == partial :nav
 
+a#about
 section#about.fullheight.parallax.shadow
   .container
     h1 Timber Frame Education, Design &amp; Joinery
@@ -24,6 +25,7 @@ section#about.fullheight.parallax.shadow
     h2.tel
       a href='tel:218.370.8415' 218.370.8415
 
+a#services
 section#services.fullheight.shadow
   .container
     h1 Timber Framing Services
@@ -59,23 +61,24 @@ section#services.fullheight.shadow
         p Constructing small and unique frames using traditional joinery with the subtle effects of hand tools.
 
 a#work
-section.work.timberframing.fullheight
+section#work.shadow
   .container
-    .row.sixteen.columns
+    .row.sixteen.columns.fullheight
       h1 Timber Framing
       .panel
-        == partial :project_slide, :collection => timberframing
+        == partial :project, :collection => timberframing
 
-    .row.sixteen.columns
+    .row.sixteen.columns.fullheight
       h1 Grindbygg
       .panel
-        == partial :project_slide, :collection => grindbygg
+        == partial :project, :collection => grindbygg
 
-    .row.sixteen.columns
+    .row.sixteen.columns.fullheight
       h1 Design
       .panel
-        == partial :project_slide, :collection => design
+        == partial :project, :collection => design
 
+a#contact
 section#contact.parallax
   h1.shadow Contact Me
   .container
