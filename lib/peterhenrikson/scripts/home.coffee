@@ -1,11 +1,13 @@
 define (require) ->
 
   $ = require('jquery'); require('scrollto'); require('cycle');
+  isMobile = require('cs!site/ismobile')
   parallax = require('cs!site/parallax')
 
   ->
-    # make parallax images do their thing
-    parallax($('.parallax'))
+    if !isMobile
+      # make parallax images do their thing
+      parallax($('.parallax'))
 
     # make service images crossfade, with slight delay between each
     $('.cycle').each (idx, el) ->

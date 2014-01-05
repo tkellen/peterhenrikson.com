@@ -12,7 +12,8 @@ define (require) ->
   $ ->
     if onHomePage
       initHome()
-      initNav()
+      if !isMobile
+        initNav()
 
     initMasonry()
     initForms()
