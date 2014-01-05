@@ -10,15 +10,14 @@ Sequel.migration do
       foreign_key :category_id, :category, {:null=>false}
       column :date_project, Date, {:null=>false,:default=>:now.sql_function}
       column :title, String, {:null=>false}
-      column :body, String
+      column :description, String
       column :url_slug, String, {:null=>false}
       column :published, TrueClass, {:null=>false,:default=>true}
     end
     create_table(:project_photo) do
       primary_key :id
       foreign_key :project_id, :project, {:null=>false}
-      column :title, String, {:null=>false}
-      column :url, String, {:null=>false}
+      foreign_key :photo_id, :photo, {:null=>false}
       column :ordering, Integer, {:null=>false}
     end
   end

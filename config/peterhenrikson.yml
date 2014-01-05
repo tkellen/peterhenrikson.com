@@ -9,6 +9,10 @@ email:
   from: donotreply@peterhenrikson.com
   developer: tyler@sleekcode.net
 
+paypal:
+  url_ipn: http://www.paypal.com/cgi-bin/webscr
+  recipient: peter@peterhenrikson.com
+
 assets:
   s3: //s3.amazonaws.com/s3.peterhenrikson.com
 

@@ -1,7 +1,6 @@
 define (require) ->
 
   $ = require('jquery')
-  isMobile = require('cs!site/ismobile')
 
   ->
 
@@ -10,7 +9,6 @@ define (require) ->
 
     # get the initial top offset of the navbar
     ntop = nav.offset().top;
-    # control navbar sticking
 
     stickNav = ->
       wtop = $(window).scrollTop()

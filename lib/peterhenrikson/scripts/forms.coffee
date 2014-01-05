@@ -49,3 +49,13 @@ define (require) ->
   ->
     # ajaxify forms
     $('form.ajax').each -> formHandler(@)
+
+    # placeholders on inputs use fontawesome
+    # this switches the font to the default when
+    # their fields aren't empty
+    $('.iconed').on 'keyup', ->
+      input = $(@)
+      if input.val().length == 0
+          input.addClass('iconed');
+      else
+          input.removeClass('iconed');

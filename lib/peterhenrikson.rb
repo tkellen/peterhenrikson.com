@@ -26,8 +26,8 @@ require 'peterhenrikson/helpers/email'
 require 'peterhenrikson/models/email'
 require 'peterhenrikson/models/page_seo'
 require 'peterhenrikson/models/timeline'
+require 'peterhenrikson/models/photo'
 require 'peterhenrikson/models/project'
-require 'peterhenrikson/models/project_photo'
 
 # Load sinatra.
 require 'peterhenrikson/app'

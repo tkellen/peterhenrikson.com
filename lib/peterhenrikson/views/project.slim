@@ -1,6 +1,6 @@
 section#project
   .container
     h1==project.title
-    p==project.body
+    ==project.descriptionHTML
     - if project.featuredPhoto
-      img src==project.featuredPhoto.src
+      img src==project.featuredPhoto.url
