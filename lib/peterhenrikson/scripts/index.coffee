@@ -6,6 +6,7 @@ define (require) ->
   initForms = require('cs!site/forms')
   initHandlers = require('cs!site/handlers')
   initMasonry = require('cs!site/masonry')
+  initSlideshows = require('cs!site/slideshows')
   isMobile = require('cs!site/ismobile')
   onHomePage = (window.location.pathname.substring(1) == "")
 
@@ -18,3 +19,4 @@ define (require) ->
     initMasonry()
     initForms()
     initHandlers()
+    initSlideshows()

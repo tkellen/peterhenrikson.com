@@ -1,9 +1,10 @@
 define (require) ->
 
-  require('jquery')
+  $ = require('jquery')
+  humane = require('cs!site/humane')
   require('forms')
   require('parsley')
-  humane = require('cs!site/humane')
+
 
   formHandler = (form) ->
     # save button text

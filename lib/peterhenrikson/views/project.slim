@@ -1,7 +1,16 @@
-section#project.smallpad
-  .container
-    h1==project.title
-    ==project.descriptionHTML
-    - project.photos.each do |photo|
-      img src==photo.url
-      br
+section#project
+  h1==project.title
+  ==project.descriptionHTML
+  .slider-position
+    - (0...project.photos.length).each do |i|
+      div class=(i == 0 ? "on" : nil)
+        ==(i+1)
+  .slider
+    .wrap
+      - project.photos.each do |photo|
+        div
+          img src==photo.url
+  .slider-position
+    - (0...project.photos.length).each do |i|
+      div class=(i == 0 ? "on" : nil)
+        ==(i+1)

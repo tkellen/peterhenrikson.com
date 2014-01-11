@@ -24,9 +24,9 @@ require.config({
     parsley: 'parsleyjs/parsley',
     humane: 'humane-js/humane',
     forms: 'jquery-form/jquery.form',
-    swiper: 'swiper/dist/idangerous.swiper-2.4',
+    swipe: 'Swipe/swipe',
     cycle: 'cycle/jquery.cycle.lite',
-    masonry: 'masonry/masonry',
+    masonry: 'masonry/masonry'
   },
 
   shim: {
@@ -35,9 +35,11 @@ require.config({
     forms: ['jquery'],
     placeholder: ['jquery'],
     parsley: ['jquery'],
-    swiper: ['jquery'],
     cycle: ['jquery'],
-    masonry: ['jquery']
+    masonry: ['jquery'],
+    swipe: {
+      exports: 'Swipe'
+    }
   },
 
   // modules not included in optimized build

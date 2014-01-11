@@ -1,4 +1,4 @@
-section#product.smallpad
+section#product
   .container
     h1=="#{product.title} - $#{product.price.to_i}"
     == partial :paypal, :locals => { :item => product }

@@ -1,6 +1,6 @@
 define (require) ->
 
-  require('jquery')
+  $ = require('jquery')
   require('placeholder')
 
   ->
