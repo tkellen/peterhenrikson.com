@@ -13,7 +13,7 @@ define (require) ->
         indicators.eq(1).find('div').eq(pos).addClass('on')
         null
     })
-    indicators.click (e) ->
+    indicators.find('div').click (e) ->
       pos = $(e.target).parent().children().index(e.target)
       swipe.slide(pos, 300)
 
